@@ -1,0 +1,18 @@
+<template>
+    <lightning-layout horizontal-align="center" multiple-rows>
+        <template if:true={carFound}>
+            <template for:each={cars} for:item="car">
+                <lightning-layout-item key={car.Id} padding="around-small" size="12" small-device-size="6">
+                    <c-car-tile car={car} oncarselect={carSelectHandler} selected-car-id={carSelectId}></c-car-tile>
+                </lightning-layout-item>
+            </template>
+        </template>
+
+        <template if:false={carFound}>
+            <div class="slds-align_absolute-center">
+                Car not found
+            </div>
+        </template>
+        
+    </lightning-layout>
+</template>
